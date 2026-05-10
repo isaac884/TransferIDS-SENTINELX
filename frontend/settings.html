@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TransferIDS SENTINEL-X - Settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="settings">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark"></div><div class="brand-copy"><p class="eyebrow">TransferIDS // SOC</p><strong>SENTINEL-X</strong><span>Cross-domain intrusion detection and guided incident response</span></div></div>
+      <section class="sidebar-block"><h3>Platform State</h3><p>This page summarizes platform operation, geo availability, and model route without turning settings into a host console.</p></section>
+      <div class="nav-group"><p class="nav-group-label">Core Workspace</p><nav class="nav-list"><a class="nav-item" data-nav="dashboard" href="dashboard.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11.5h4V17H3zM8.5 7.5h4V17h-4zM14 3h3v14h-3z"/></svg></span><span>Dashboard</span></span><span class="nav-badge">Live</span></a><a class="nav-item" data-nav="incidents" href="incidents.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5.5h12M4 10h12M4 14.5h12"/></svg></span><span>Incidents</span></span><span class="nav-badge">Queue</span></a><a class="nav-item" data-nav="response" href="response.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 15l5-5 3 3 4-6"/><path d="M13 7h3v3"/></svg></span><span>Response Center</span></span><span class="nav-badge">Act</span></a><a class="nav-item" data-nav="learning-queue" href="learning-queue.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h12"/><path d="M4 10h12"/><path d="M4 14h8"/><path d="M15 13l2 2 3-4"/></svg></span><span>Learning Queue</span></span><span class="nav-badge">Train</span></a><a class="nav-item" data-nav="insights" href="insights.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10" cy="10" r="6"/><path d="M10 6v4l2 2"/></svg></span><span>Insights</span></span><span class="nav-badge">Model</span></a><a class="nav-item" data-nav="settings" href="settings.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 2.8l1.2 2.4 2.7.4-1.9 1.9.5 2.8-2.5-1.3-2.5 1.3.5-2.8L6.1 5.6l2.7-.4L10 2.8z"/><circle cx="10" cy="10.3" r="1.8"/></svg></span><span>Settings</span></span><span class="nav-badge">Ctrl</span></a></nav></div>
+      <div class="nav-group"><p class="nav-group-label">Operations</p><nav class="nav-list"><a class="nav-item" data-nav="intake" href="intake.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3v9"/><path d="M6.5 8.5L10 12l3.5-3.5"/><rect x="4" y="13.5" width="12" height="3.5" rx="1.2"/></svg></span><span>Data Intake</span></span><span class="nav-badge">Input</span></a><a class="nav-item" data-nav="reports" href="reports.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h7l3 3v11H5z"/><path d="M12 3v4h4"/><path d="M7.5 10h5M7.5 13h5"/></svg></span><span>Reports</span></span><span class="nav-badge">Export</span></a></nav></div>
+      <div class="sidebar-footer"><div class="sidebar-meta"><span>Collectors</span><strong>Pending</strong></div><div class="sidebar-meta"><span>Model Route</span><strong>Awaiting backend state</strong></div></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-copy"><h1 id="pageTitle">Settings</h1><p id="pageSubtitle">See platform health, live sensor status, map availability, and model evidence in one place.</p></div>
+        <div class="topbar-right"><label class="search-shell"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9" r="5.6"/><path d="M13.2 13.2L17 17"/></svg><input type="text" placeholder="Search user, collector, model"></label><button class="icon-button" type="button" aria-label="Notifications"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3.2a3 3 0 0 1 3 3v1.2c0 .8.2 1.7.7 2.4l1 1.5v1.1H5.3v-1.1l1-1.5c.5-.7.7-1.6.7-2.4V6.2a3 3 0 0 1 3-3z"/><path d="M8.2 15.6a2 2 0 0 0 3.6 0"/></svg></button><div class="user-pill"><div class="avatar">SX</div><div><strong>SOC Analyst</strong><span>Session Active</span></div></div><div class="status-chip good"><span id="currentTime">--:--:--</span></div></div>
+      </header>
+      <div class="content">
+        <div class="section-stack">
+          <section class="operator-command-shell operator-command-shell--settings">
+            <div class="operator-status-bar">
+              <div>
+                <p class="operator-kicker">Platform Control Plane</p>
+                <h2>Settings only keeps controls that can close the loop</h2>
+                <span>Prioritize platform, sensor, model, and access state instead of dumping operations details into an unranked list.</span>
+              </div>
+              <nav class="operator-tab-strip" aria-label="Settings categories">
+                <a href="#settingsSummaryGrid" class="operator-tab operator-tab--active">Platform</a>
+                <a href="#settingsSensorAdminSection" class="operator-tab">Collectors</a>
+                <a href="#modelRegistryGrid" class="operator-tab">Models</a>
+                <a href="#settingsIdentityAdminSection" class="operator-tab">Access Control</a>
+              </nav>
+            </div>
+          </section>
+
+          <section class="hero-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Platform Overview</p>
+                  <h2>Administration Summary</h2>
+                  <p>Start with platform identity, sensor readiness, and model state; avoid turning this page into backend noise.</p>
+                </div>
+                <span class="status-chip good">Admin / Research</span>
+              </div>
+              <div class="surface-body">
+                <div id="settingsSummaryGrid" class="status-board"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Quick Check</p>
+                  <h2>Revalidate Platform State</h2>
+                  <p>Keep only necessary verification actions; do not pretend to be a full infrastructure console.</p>
+                </div>
+                <span class="status-chip warn">Control Entry</span>
+              </div>
+              <div class="surface-body">
+                <div id="settingsRuntimeGrid" class="detail-grid detail-grid--dense"></div>
+                <div class="dual-actions" style="margin-top:18px;">
+                  <button id="refreshSystemBtn" class="primary-button" type="button">Refresh System State</button>
+                </div>
+                <div id="settingsActionLog" class="audit-list" style="margin-top:18px;"></div>
+              </div>
+            </article>
+          </section>
+
+          <section id="settingsSensorAdminSection" class="hero-grid" data-admin-only="true" hidden>
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Sensor Runtime State</p>
+                  <h2>Suricata Live Sensor</h2>
+                  <p>Separate file reading from real network monitoring so operators know whether the platform is watching traffic.</p>
+                </div>
+                <span id="settingsSensorStatusChip" class="status-chip warn">Sensor idle</span>
+              </div>
+              <div class="surface-body">
+                <div id="settingsSensorRuntimeGrid" class="detail-grid detail-grid--dense"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Sensor Control</p>
+                  <h2>Interface Selection and Start/Stop</h2>
+                  <p>Live process control appears only when the backend control plane exists. Otherwise use Data Intake EVE upload or distributed sensor observations.</p>
+                </div>
+                <span class="status-chip warn">Control Plane</span>
+              </div>
+              <div class="surface-body">
+                <div class="config-grid">
+                  <label class="field-shell">
+                    <span>Preferred Interface</span>
+                    <select id="settingsSuricataInterfaceSelect"></select>
+                  </label>
+                </div>
+                <p class="support-note">Replay files are managed in Data Intake. Settings keeps only live-operations controls.</p>
+                <div id="settingsSensorInterfaces" class="mapping-grid" style="margin-top:18px;"></div>
+                <div class="dual-actions" style="margin-top:18px;">
+                  <button id="settingsStartSensorBtn" class="primary-button" type="button">Start Sensor</button>
+                  <button id="settingsStopSensorBtn" class="ghost-button" type="button">Stop Sensor</button>
+                  <button id="settingsRefreshSensorBtn" class="ghost-button" type="button">Refresh Sensor Status</button>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="hero-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">GeoIP Status</p>
+                  <h2>Geo Enrichment</h2>
+                  <p>Show whether the map uses real GeoIP or protected-site anchor fallback.</p>
+                </div>
+                <span id="settingsGeoipStatusChip" class="status-chip warn">GeoIP unavailable</span>
+              </div>
+              <div class="surface-body">
+                <div id="settingsGeoipRuntimeGrid" class="detail-grid detail-grid--dense"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Map Coverage</p>
+                  <h2>Dashboard Geo Coverage</h2>
+                  <p>Not every point is a real geographic coordinate. This makes true location coverage explicit.</p>
+                </div>
+                <span class="status-chip good">Map aware</span>
+              </div>
+              <div class="surface-body">
+                <div id="settingsGeoipCoverageGrid" class="status-board"></div>
+              </div>
+            </article>
+          </section>
+
+          <section id="settingsIdentityAdminSection" class="analysis-grid" data-admin-only="true" hidden>
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Accounts and Access</p>
+                  <h2>Platform Roles</h2>
+                  <p>Show admins who can operate, who can view, and who can enter research or administration flows.</p>
+                </div>
+                <span class="status-chip good">Roles visible</span>
+              </div>
+              <div class="surface-body">
+                <div class="table-shell">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Account</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Last Login</th>
+                      </tr>
+                    </thead>
+                    <tbody id="settingsUsersRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Data Source Panel</p>
+                  <h2>Collector State</h2>
+                  <p>Verify data sources are healthy and continuously feeding the detection engine, not just configured.</p>
+                </div>
+                <span class="status-chip good">Source visible</span>
+              </div>
+              <div class="surface-body">
+                <div class="table-shell">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Collector ID</th>
+                        <th>Source Type</th>
+                        <th>Status</th>
+                        <th>Interval</th>
+                        <th>Last Run</th>
+                      </tr>
+                    </thead>
+                    <tbody id="settingsCollectorsRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section id="settingsAgentsAdminSection" class="analysis-grid" data-admin-only="true" hidden>
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Endpoint Agent</p>
+                  <h2>Local Agent State</h2>
+                  <p>Only registered endpoint agents appear here: online state, offline state, and recent observations.</p>
+                </div>
+                <span class="status-chip good">Endpoint visible</span>
+              </div>
+              <div class="surface-body">
+                <div class="table-shell">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Display Name</th>
+                        <th>Host</th>
+                        <th>Status</th>
+                        <th>Last Check-In</th>
+                        <th>Recent Observations</th>
+                        <th>Recent Materialized Events</th>
+                      </tr>
+                    </thead>
+                    <tbody id="settingsAgentsRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section id="settingsAgentHostAdminSection" class="hero-grid" data-admin-only="true" hidden>
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Local Install State</p>
+                  <h2>Endpoint Agent Install / Permissions</h2>
+                  <p>Make clear whether this host can install the agent, which dependencies are missing, and whether the session has admin rights.</p>
+                </div>
+                <span id="settingsAgentHostStatusChip" class="status-chip warn">Needs check</span>
+              </div>
+              <div class="surface-body">
+                <div id="settingsAgentHostStatusGrid" class="status-board"></div>
+                <div id="settingsAgentHostRuntimeGrid" class="detail-grid detail-grid--dense" style="margin-top:18px;"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Install Entry</p>
+                  <h2>Thin Agent Setup / Verification Commands</h2>
+                  <p>The browser cannot elevate permissions. This build provides setup and verification commands for the canonical-observation sender.</p>
+                </div>
+                <span class="status-chip good">Setup script</span>
+              </div>
+              <div class="surface-body">
+                <div id="settingsAgentInstallGrid" class="detail-grid detail-grid--dense"></div>
+                <div class="dual-actions" style="margin-top:18px;">
+                  <button id="copyAgentInstallCommandBtn" class="primary-button" type="button">Copy Setup Command</button>
+                  <button id="copyAgentSmokeCommandBtn" class="ghost-button" type="button">Copy Verification Command</button>
+                  <button id="copyAgentUninstallCommandBtn" class="ghost-button" type="button">Copy Removal Command</button>
+                </div>
+                <div id="settingsAgentInstallNotes" class="audit-list" style="margin-top:18px;"></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="hero-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Model Registry</p>
+                  <h2>Currently Active Model</h2>
+                  <p>Expose the active strategy, schema, and model version so research and production do not drift apart.</p>
+                </div>
+                <span class="status-chip good">Lineage traceable</span>
+              </div>
+              <div class="surface-body">
+                <div id="modelRegistryGrid" class="detail-grid detail-grid--dense"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Model Evolution</p>
+                  <h2>TransferIDS Evolution Path</h2>
+                  <p>This is the valuable part of Settings: it explains how the model moves from direct transfer to adaptive to feedback-driven versions.</p>
+                </div>
+                <span class="status-chip warn">Research linked</span>
+              </div>
+              <div class="surface-body">
+                <div id="modelLineageFlow" class="lineage-flow"></div>
+                <div id="modelLineageNotes" class="mapping-grid" style="margin-top:18px;"></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="analysis-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Version History</p>
+                  <h2>Registered Versions</h2>
+                  <p>Do not rely on a pretty path diagram; real deployment history must be searchable, verifiable, and auditable.</p>
+                </div>
+                <span class="status-chip good">Registry supported</span>
+              </div>
+              <div class="surface-body">
+                <div class="table-shell">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Registry ID</th>
+                        <th>Model Version</th>
+                        <th>Detection Strategy</th>
+                        <th>Status</th>
+                        <th>Source Job</th>
+                        <th>Created At</th>
+                      </tr>
+                    </thead>
+                    <tbody id="settingsRegistryRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Fine-Tuning Jobs</p>
+                  <h2>Training Lifecycle</h2>
+                  <p>Make clear which candidates entered training and which jobs produced new model versions.</p>
+                </div>
+                <span class="status-chip warn">Lifecycle tracking</span>
+              </div>
+              <div class="surface-body">
+                <div class="table-shell">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Job ID</th>
+                        <th>Scope</th>
+                        <th>Status</th>
+                        <th>Candidate Count</th>
+                        <th>Target Version</th>
+                        <th>Output Version</th>
+                        <th>Created At</th>
+                      </tr>
+                    </thead>
+                    <tbody id="settingsJobsRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>

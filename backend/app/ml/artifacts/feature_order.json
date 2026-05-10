@@ -1,0 +1,15 @@
+[
+  "flow_duration",
+  "total_fwd_pkts",
+  "total_bwd_pkts",
+  "total_fwd_bytes",
+  "total_bwd_bytes",
+  "fwd_pkt_len_mean",
+  "bwd_pkt_len_mean",
+  "fwd_iat_mean",
+  "bwd_iat_mean",
+  "fwd_iat_std",
+  "bwd_iat_std",
+  "init_win_fwd",
+  "init_win_bwd"
+]

@@ -1,0 +1,42 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: transferids
+      POSTGRES_USER: transferids
+      POSTGRES_PASSWORD: transferids
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://transferids:transferids@postgres:5432/transferids
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET: change-me-before-production
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "8000:8000"
+
+  reverse-proxy:
+    image: nginx:1.27-alpine
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./reverse_proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./frontend:/usr/share/nginx/html:ro
+
+volumes:
+  postgres_data:
+

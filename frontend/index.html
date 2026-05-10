@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="transferids-api-base" content="">
+  <title>TransferIDS SENTINEL-X | Secure Access</title>
+  <!-- TransferIDS SENTINEL-X | Login compatibility marker -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="login">
+  <main class="login-shell">
+    <section class="login-hero">
+      <div class="login-ambient" aria-hidden="true">
+        <div class="signal-frame">
+          <div class="signal-grid"></div>
+          <div class="signal-scan"></div>
+          <div class="signal-orbit signal-orbit-a"></div>
+          <div class="signal-orbit signal-orbit-b"></div>
+          <svg class="signal-lines" viewBox="0 0 420 280" preserveAspectRatio="none">
+            <path d="M46 210C96 180 132 134 182 120C232 106 288 122 374 76"/>
+            <path d="M74 62C140 98 184 156 230 170C276 184 312 154 368 116"/>
+            <path d="M116 228C162 190 194 176 228 176C276 176 316 204 346 224"/>
+          </svg>
+          <span class="signal-node signal-node-1"></span>
+          <span class="signal-node signal-node-2"></span>
+          <span class="signal-node signal-node-3"></span>
+          <span class="signal-node signal-node-4"></span>
+          <span class="signal-node signal-node-5"></span>
+          <div class="signal-core"></div>
+        </div>
+      </div>
+      <p class="eyebrow">TransferIDS // Secure Operations Access</p>
+      <h1>TransferIDS SENTINEL-X</h1>
+      <p class="login-copy">Enter a traceable, response-ready AI-assisted SOC workspace for cross-domain intrusion detection.</p>
+      <div class="login-command-grid" aria-label="SOC readiness state">
+        <div><span>Threat Monitor</span><strong>Active</strong></div>
+        <div><span>AI Readiness</span><strong>Model-gated</strong></div>
+        <div><span>Workspace</span><strong>Incident-first</strong></div>
+        <div><span>Evidence Chain</span><strong>Auditable</strong></div>
+      </div>
+      <div class="login-ops-ticker">
+        <span>AUTH GATE</span>
+        <strong>Dashboard / Incidents / Response / Insights / Intake / Learning / Reports / Settings</strong>
+      </div>
+    </section>
+
+    <section class="login-card">
+      <div class="surface-head">
+        <div>
+          <p class="eyebrow">Authentication</p>
+          <h2 id="authCardTitle">Platform Login</h2>
+          <p id="authCardDescription">Enter your platform username and password to continue.</p>
+        </div>
+        <span class="status-chip good">Platform access</span>
+      </div>
+      <div class="surface-body">
+        <div class="auth-mode-toggle" role="tablist" aria-label="Authentication Mode">
+          <button id="showLoginModeBtn" class="auth-mode-button active" type="button">Sign In</button>
+          <button id="showRegisterModeBtn" class="auth-mode-button" type="button">Create Account</button>
+        </div>
+        <form id="loginForm" class="login-form">
+          <label class="field-shell">
+            <span>Username</span>
+            <input id="loginUsername" type="text" required>
+          </label>
+          <label class="field-shell">
+            <span>Password</span>
+            <input id="loginPassword" type="password" required>
+          </label>
+          <label id="registerConfirmField" class="field-shell" hidden style="display:none;" aria-hidden="true">
+            <span>Confirm Password</span>
+            <input id="registerConfirmPassword" type="password">
+          </label>
+          <div class="dual-actions">
+            <button id="loginSubmitBtn" class="primary-button" type="submit">Sign In</button>
+          </div>
+          <div id="authModeHint" class="small-note">After sign-in, you will enter the SENTINEL-X Security Operations Dashboard.</div>
+          <div id="loginResult" class="small-note"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>

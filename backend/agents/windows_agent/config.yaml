@@ -1,0 +1,8 @@
+agent_id: windows-agent-local
+server_url: http://127.0.0.1:8000
+tenant_id: default
+capture_interval_seconds: 10
+buffer_path: ./agent_buffer.jsonl
+request_timeout_seconds: 10
+canonical_flow_file:
+agent_token:

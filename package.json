@@ -1,0 +1,17 @@
+{
+  "name": "transferids-sentinel-x",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "frontend:check": "node scripts/frontend_runtime_check.mjs",
+    "product:check": "node scripts/product_readiness_check.mjs",
+    "release:check": "node scripts/release_check.mjs",
+    "release:package": "node scripts/package_release.mjs",
+    "db:ensure": "python scripts/ensure_database_exists.py",
+    "db:init": "python scripts/init_database.py",
+    "onnx:export": "python scripts/export_c3_checkpoint_to_onnx.py",
+    "onnx:smoke": "python scripts/smoke_test_onnx_model.py",
+    "docker:config": "docker compose config"
+  }
+}

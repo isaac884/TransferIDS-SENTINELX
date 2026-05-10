@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TransferIDS SENTINEL-X - Data Intake</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="intake">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div class="brand-copy">
+          <p class="eyebrow">TransferIDS // SOC</p>
+          <strong>SENTINEL-X</strong>
+          <span>Cross-domain detection, incident management, and guided response platform</span>
+        </div>
+      </div>
+      <section class="sidebar-block"><h3>Sensor Entry</h3><p>All data enters here, but the focus is fast detection startup and immediate results, not backend plumbing.</p></section>
+      <div class="nav-group">
+        <p class="nav-group-label">Core Workspace</p>
+        <nav class="nav-list">
+          <a class="nav-item" data-nav="dashboard" href="dashboard.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11.5h4V17H3zM8.5 7.5h4V17h-4zM14 3h3v14h-3z"/></svg></span><span>Dashboard</span></span><span class="nav-badge">Live</span></a>
+          <a class="nav-item" data-nav="incidents" href="incidents.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5.5h12M4 10h12M4 14.5h12"/></svg></span><span>Incidents</span></span><span class="nav-badge">Queue</span></a>
+          <a class="nav-item" data-nav="response" href="response.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 15l5-5 3 3 4-6"/><path d="M13 7h3v3"/></svg></span><span>Response Center</span></span><span class="nav-badge">Act</span></a>
+          <a class="nav-item" data-nav="learning-queue" href="learning-queue.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h12"/><path d="M4 10h12"/><path d="M4 14h8"/><path d="M15 13l2 2 3-4"/></svg></span><span>Learning Queue</span></span><span class="nav-badge">Train</span></a>
+          <a class="nav-item" data-nav="insights" href="insights.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10" cy="10" r="6"/><path d="M10 6v4l2 2"/></svg></span><span>Insights</span></span><span class="nav-badge">Model</span></a>
+          <a class="nav-item" data-nav="settings" href="settings.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 2.8l1.2 2.4 2.7.4-1.9 1.9.5 2.8-2.5-1.3-2.5 1.3.5-2.8L6.1 5.6l2.7-.4L10 2.8z"/><circle cx="10" cy="10.3" r="1.8"/></svg></span><span>Settings</span></span><span class="nav-badge">Ctrl</span></a>
+        </nav>
+      </div>
+      <div class="nav-group"><p class="nav-group-label">Operations</p><nav class="nav-list"><a class="nav-item" data-nav="intake" href="intake.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3v9"/><path d="M6.5 8.5L10 12l3.5-3.5"/><rect x="4" y="13.5" width="12" height="3.5" rx="1.2"/></svg></span><span>Data Intake</span></span><span class="nav-badge">Input</span></a><a class="nav-item" data-nav="reports" href="reports.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h7l3 3v11H5z"/><path d="M12 3v4h4"/><path d="M7.5 10h5M7.5 13h5"/></svg></span><span>Reports</span></span><span class="nav-badge">Export</span></a></nav></div>
+      <div class="sidebar-footer"><div class="sidebar-meta"><span>Transparent ledger</span><strong>Enabled</strong></div><div class="sidebar-meta"><span>Collectors</span><strong>Standby</strong></div></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <h1 id="pageTitle">Data Intake</h1>
+          <p id="pageSubtitle">Select a source or upload a file, then immediately see what the platform found.</p>
+        </div>
+        <div class="topbar-right">
+          <label class="search-shell"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9" r="5.6"/><path d="M13.2 13.2L17 17"/></svg><input type="text" placeholder="Search sources, jobs, schemas"></label>
+          <button class="icon-button" type="button" aria-label="Notifications"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3.2a3 3 0 0 1 3 3v1.2c0 .8.2 1.7.7 2.4l1 1.5v1.1H5.3v-1.1l1-1.5c.5-.7.7-1.6.7-2.4V6.2a3 3 0 0 1 3-3z"/><path d="M8.2 15.6a2 2 0 0 0 3.6 0"/></svg></button>
+          <div class="user-pill"><div class="avatar">SX</div><div><strong>SOC Analyst</strong><span>Session Active</span></div></div>
+          <div class="status-chip good"><span id="currentTime">--:--:--</span></div>
+        </div>
+      </header>
+      <div class="content">
+        <div class="section-stack">
+          <section class="operator-command-shell operator-command-shell--intake">
+            <div class="operator-status-bar">
+              <div>
+                <p class="operator-kicker">Detection Intake Control</p>
+                <h2>Before data enters, verify sensor and pipeline trust</h2>
+                <span>This is not a file upload page; it is the control surface for live traffic, PCAP, NetFlow, Suricata, and endpoint telemetry intake.</span>
+              </div>
+              <nav class="operator-tab-strip" aria-label="Intake workflow">
+                <a href="#sourceCards" class="operator-tab operator-tab--active">Sensors</a>
+                <a href="#suricataSensorRuntimeGrid" class="operator-tab">Suricata</a>
+                <a href="#csvFileInput" class="operator-tab">PCAP / CSV</a>
+                <a href="#latestAnalysisSummary" class="operator-tab">Pipeline Result</a>
+                <a href="#latestAnalysisRows" class="operator-tab">Ledger</a>
+              </nav>
+            </div>
+          </section>
+
+          <section class="hero-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Source Selection</p>
+                  <h2>First decide where data comes from</h2>
+                  <p>Choose one source. You do not need to understand the backend flow first.</p>
+                </div>
+                <span id="intakeOverallStatus" class="status-chip warn">Idle</span>
+              </div>
+              <div class="surface-body">
+                <div id="sourceCards" class="source-grid"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Detection Engine</p>
+                  <h2>Choose the detection mode for this run</h2>
+                  <p>Research details stay in Insights. This page keeps only switches that affect detection output.</p>
+                </div>
+                <span class="status-chip warn">Model status pending</span>
+              </div>
+              <div class="surface-body">
+                <div class="config-grid">
+                  <label class="field-shell">
+                    <span>Detection Strategy</span>
+                    <select id="strategySelect">
+                      <option value="standard">Standard Detection</option>
+                      <option value="adaptive" selected>Adaptive Detection</option>
+                      <option value="enhanced">Enhanced Detection</option>
+                    </select>
+                  </label>
+                  <label class="field-shell">
+                    <span>Model Backbone</span>
+                    <select id="modelSelect">
+                      <option value="tabtransformer" selected>TabTransformer</option>
+                      <option value="mlp">MLP</option>
+                      <option value="fttransformer">FT-Transformer</option>
+                    </select>
+                  </label>
+                  <label class="field-shell">
+                    <span>Transfer Route</span>
+                    <select id="routeSelect">
+                      <option value="cicids_to_unsw" selected>CICIDS2017 -> UNSW-NB15</option>
+                      <option value="unsw_to_cicids">UNSW-NB15 -> CICIDS2017</option>
+                    </select>
+                  </label>
+                  <label class="field-shell">
+                    <span>Task Type</span>
+                    <select id="taskSelect">
+                      <option value="binary" selected>Binary</option>
+                      <option value="harmonized_multiclass">Harmonized Multiclass</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="toggle-row">
+                  <label class="switch-shell">
+                    <input id="aeToggle" type="checkbox" checked>
+                    <span>Enable AE Enhancement</span>
+                  </label>
+                  <label class="switch-shell">
+                    <input id="guidedReviewToggle" type="checkbox" checked>
+                    <span>Enable Guided Review</span>
+                  </label>
+                </div>
+                <div id="strategySummary" class="status-board"></div>
+              </div>
+            </article>
+          </section>
+
+          <section id="intakeSensorAdminSection" class="hero-grid" data-admin-only="true" hidden>
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Live Sensor</p>
+                  <h2>Suricata Sensor Status</h2>
+                  <p>This shows the Suricata sensor on the backend host: whether it is running, which adapter it is bound to, and whether data keeps arriving.</p>
+                </div>
+                <span id="suricataSensorStatusChip" class="status-chip warn">Sensor idle</span>
+              </div>
+              <div class="surface-body">
+                <div id="suricataSensorRuntimeGrid" class="detail-grid detail-grid--dense"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Platform Control</p>
+                  <h2>Backend Sensor Console</h2>
+                  <p>This controls the sensor on the backend host, not the browser machine. The sensor should normally run as a backend service; this area is for status checks, manual overrides, and replay switching.</p>
+                </div>
+                <span class="status-chip good">Operator focused</span>
+              </div>
+              <div class="surface-body">
+                <div class="config-grid">
+                  <label class="field-shell">
+                    <span>Backend Sensor Interface</span>
+                    <select id="suricataInterfaceSelect"></select>
+                  </label>
+                  <label class="field-shell">
+                    <span>Replay Dataset (Optional)</span>
+                    <input id="suricataReplayFileInput" type="file" accept=".pcap,.pcapng,.cap">
+                  </label>
+                </div>
+                <p class="support-note">After upload, replay files are stored in the managed replay library so operators do not need filesystem paths.</p>
+                <div id="suricataReplayLibrary" class="replay-library-grid" style="margin-top:18px;"></div>
+                <div id="suricataInterfaceCards" class="mapping-grid" style="margin-top:18px;"></div>
+                <div class="dual-actions" style="margin-top:18px;">
+                  <button id="startSuricataSensorBtn" class="primary-button" type="button">Start Live Sensor</button>
+                  <button id="stopSuricataSensorBtn" class="ghost-button" type="button">Stop Sensor</button>
+                  <button id="refreshSuricataSensorBtn" class="ghost-button" type="button">Refresh Status</button>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="surface">
+            <div class="surface-head">
+              <div>
+                <p class="eyebrow">Start Analysis</p>
+                <h2>Upload to analyze; capture to open cases</h2>
+                <p>Send data in and the platform returns results without requiring internal pipeline knowledge.</p>
+              </div>
+              <div class="dual-actions">
+                <button id="uploadCsvBtn" class="ghost-button" type="button">Analyze CSV / JSON</button>
+                <button id="importNetflowBtn" class="ghost-button" type="button">Analyze NetFlow</button>
+                <button id="startCaptureBtn" class="ghost-button" type="button" data-admin-only="true" hidden>Start Live Capture</button>
+                <button id="stopCaptureBtn" class="ghost-button" type="button" data-admin-only="true" hidden>Stop and Analyze</button>
+              </div>
+            </div>
+            <div class="surface-body">
+              <div class="config-grid" style="margin-bottom:18px;">
+                <label class="field-shell">
+                  <span>CSV / JSON File</span>
+                  <input id="csvFileInput" type="file" accept=".csv,.json,application/json,text/csv">
+                </label>
+                <label class="field-shell">
+                  <span>NetFlow File</span>
+                  <input id="netflowFileInput" type="file" accept=".csv,.txt">
+                </label>
+              </div>
+              <div class="compact-flow">
+                <div class="compact-flow-step"><span>1</span><strong>Ingest Data</strong></div>
+                <div class="flow-arrow">→</div>
+                <div class="compact-flow-step"><span>2</span><strong>Score Suspicious Traffic</strong></div>
+                <div class="flow-arrow">→</div>
+                <div class="compact-flow-step"><span>3</span><strong>Open Incidents Automatically</strong></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="surface">
+            <div class="surface-head">
+              <div>
+                <p class="eyebrow">Analysis Snapshot</p>
+                <h2>What the Platform Just Found</h2>
+                <p>This returns the results that matter: how many events were created, what types they were, and which incidents opened.</p>
+              </div>
+              <span id="latestAnalysisStatus" class="status-chip warn">Waiting for input</span>
+            </div>
+            <div class="surface-body">
+              <div id="latestAnalysisSummary" class="status-board"></div>
+              <div class="analysis-snapshot-grid">
+                <div id="latestAnalysisDistribution" class="mini-bar-list"></div>
+                <div class="table-shell">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Time</th>
+                        <th>Event ID</th>
+                        <th>Verdict</th>
+                        <th>Confidence</th>
+                        <th>Incident ID</th>
+                      </tr>
+                    </thead>
+                    <tbody id="latestAnalysisRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="analysis-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Transparency Principle</p>
+                  <h2>Do not force incidents when there is no attack</h2>
+                  <p>The platform keeps every observation, but only suspicious or alerted traffic becomes an incident.</p>
+                </div>
+                <span class="status-chip good">Data honesty</span>
+              </div>
+              <div class="surface-body">
+                <div class="status-board">
+                  <article class="status-card">
+                    <span>Raw Traffic</span>
+                    <strong>All retained</strong>
+                    <p>Every import, polling cycle, and live capture leaves auditable backend records.</p>
+                  </article>
+                  <article class="status-card">
+                    <span>Attack Events</span>
+                    <strong>Created only when needed</strong>
+                    <p>Normal traffic is recorded, not forced into attack events.</p>
+                  </article>
+                  <article class="status-card">
+                    <span>Incidents</span>
+                    <strong>Only real events are grouped</strong>
+                    <p>The incident queue only contains security events requiring analyst handling.</p>
+                  </article>
+                </div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">System Response</p>
+                  <h2>Live Processing Log</h2>
+                  <p>Operators can see what the platform is doing without switching to backend terminals.</p>
+                </div>
+                <span class="status-chip good">Live Log</span>
+              </div>
+              <div class="surface-body">
+                <div id="liveTerminal" class="terminal-shell"></div>
+              </div>
+            </article>
+          </section>
+
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>

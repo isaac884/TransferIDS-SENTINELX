@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TransferIDS SENTINEL-X - Dashboard</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="dashboard">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div class="brand-copy">
+          <p class="eyebrow">TransferIDS // SOC</p>
+          <strong>SENTINEL-X</strong>
+          <span>Adaptive threat detection and incident operations platform</span>
+        </div>
+      </div>
+
+
+      <div class="nav-group">
+        <p class="nav-group-label">Security Operations</p>
+        <nav class="nav-list">
+          <a class="nav-item" data-nav="dashboard" href="dashboard.html">
+            <span class="nav-main">
+              <span class="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11.5h4V17H3zM8.5 7.5h4V17h-4zM14 3h3v14h-3z"/></svg>
+              </span>
+              <span>Dashboard</span>
+            </span>
+            <span class="nav-badge">Live</span>
+          </a>
+          <a class="nav-item" data-nav="incidents" href="incidents.html">
+            <span class="nav-main">
+              <span class="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5.5h12M4 10h12M4 14.5h12"/></svg>
+              </span>
+              <span>Incidents</span>
+            </span>
+            <span class="nav-badge">Active</span>
+          </a>
+          <a class="nav-item" data-nav="response" href="response.html">
+            <span class="nav-main">
+              <span class="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 15l5-5 3 3 4-6"/><path d="M13 7h3v3"/></svg>
+              </span>
+              <span>Response Operations</span>
+            </span>
+            <span class="nav-badge">Respond</span>
+          </a>
+          <a class="nav-item" data-nav="learning-queue" href="learning-queue.html">
+            <span class="nav-main">
+              <span class="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h12"/><path d="M4 10h12"/><path d="M4 14h8"/><path d="M15 13l2 2 3-4"/></svg>
+              </span>
+              <span>Detection Review</span>
+            </span>
+            <span class="nav-badge">Adaptive</span>
+          </a>
+          <a class="nav-item" data-nav="insights" href="insights.html">
+            <span class="nav-main">
+              <span class="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10" cy="10" r="6"/><path d="M10 6v4l2 2"/></svg>
+              </span>
+              <span>Detection Insights</span>
+            </span>
+            <span class="nav-badge">Model</span>
+          </a>
+          <a class="nav-item" data-nav="settings" href="settings.html">
+            <span class="nav-main">
+              <span class="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 2.8l1.2 2.4 2.7.4-1.9 1.9.5 2.8-2.5-1.3-2.5 1.3.5-2.8L6.1 5.6l2.7-.4L10 2.8z"/><circle cx="10" cy="10.3" r="1.8"/></svg>
+              </span>
+              <span>Settings</span>
+            </span>
+            <span class="nav-badge">Admin</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="nav-group">
+        <p class="nav-group-label">Platform Operations</p>
+        <nav class="nav-list">
+          <a class="nav-item" data-nav="intake" href="intake.html">
+            <span class="nav-main">
+              <span class="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3v9"/><path d="M6.5 8.5L10 12l3.5-3.5"/><rect x="4" y="13.5" width="12" height="3.5" rx="1.2"/></svg>
+              </span>
+              <span>Data Intake</span>
+            </span>
+            <span class="nav-badge">Input</span>
+          </a>
+          <a class="nav-item" data-nav="reports" href="reports.html">
+            <span class="nav-main">
+              <span class="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h7l3 3v11H5z"/><path d="M12 3v4h4"/><path d="M7.5 10h5M7.5 13h5"/></svg>
+              </span>
+              <span>Reports</span>
+            </span>
+            <span class="nav-badge">Export</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-meta">
+          <span>Support</span>
+          <strong>24/7</strong>
+        </div>
+        <div class="sidebar-meta">
+          <span>Logs</span>
+          <strong>Stream Active</strong>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <h1 id="pageTitle">Security Overview</h1>
+          <p id="pageSubtitle">See where risk is forming, where pressure is coming from, and which item needs action first.</p>
+        </div>
+        <div class="topbar-right">
+          <label class="search-shell" aria-label="Search">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9" r="5.6"/><path d="M13.2 13.2L17 17"/></svg>
+            <input type="text" placeholder="Search incidents, IPs, services">
+          </label>
+          <button class="icon-button" type="button" aria-label="Notifications">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3.2a3 3 0 0 1 3 3v1.2c0 .8.2 1.7.7 2.4l1 1.5v1.1H5.3v-1.1l1-1.5c.5-.7.7-1.6.7-2.4V6.2a3 3 0 0 1 3-3z"/><path d="M8.2 15.6a2 2 0 0 0 3.6 0"/></svg>
+          </button>
+          <div class="user-pill">
+            <div class="avatar">SX</div>
+            <div>
+              <strong>SOC Analyst</strong>
+              <span>Session Active</span>
+            </div>
+          </div>
+          <div class="status-chip good">
+            <span id="currentTime">--:--:--</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="section-stack">
+          <section id="sentinelCommandCenter" class="sentinel-command-center" aria-label="TransferIDS SENTINEL-X Threat Command Center"></section>
+
+          <section class="hero-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Threat Risk</p>
+                  <h2>Real-Time Risk Pulse</h2>
+                  <p>Compress critical alerts, verified attacks, and recent observations into one operational risk signal.</p>
+                </div>
+                <span id="riskGaugeStatusChip" class="status-chip warn">Data aligned</span>
+              </div>
+              <div class="surface-body">
+                <div class="window-toggle-shell">
+                  <span class="window-toggle-label">Observation Window</span>
+                  <div id="dashboardWindowToggle" class="window-toggle" role="group" aria-label="Observation Window"></div>
+                </div>
+                <div class="gauge-layout">
+                  <div class="gauge-wrap">
+                    <svg class="gauge-svg" viewBox="0 0 240 160" aria-hidden="true">
+                      <path d="M 34 120 A 86 86 0 0 1 206 120" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="16" stroke-linecap="round"></path>
+                      <path id="riskGaugePath" fill="none" stroke="#ff7b7b" stroke-width="16" stroke-linecap="round"></path>
+                    </svg>
+                    <div class="gauge-center">
+                      <strong id="riskGaugeValue">0</strong>
+                      <span id="riskGaugeLabel">Low</span>
+                    </div>
+                  </div>
+                  <div id="riskDrivers" class="risk-bullets"></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">What to Handle First</p>
+                  <h2>Triage Focus Board</h2>
+                  <p>Do not start with raw tables. Review case pressure, unresolved alerts, and recent verified attacks before drilling into a case.</p>
+                </div>
+                <span class="status-chip good">Near real-time</span>
+              </div>
+              <div class="surface-body">
+                <div id="heroKpis" class="hero-kpis"></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="analysis-grid analytics-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Operations Funnel</p>
+                  <h2>Traffic Materialization Funnel</h2>
+                  <p>Separate raw observations, materialized events, and opened incidents without inflating window metrics.</p>
+                </div>
+                <span class="status-chip good">Metrics API</span>
+              </div>
+              <div class="surface-body">
+                <div id="materializationFunnel" class="funnel-shell"></div>
+                <div id="materializationFunnelMeta" class="detail-grid detail-grid--dense" style="margin-top:18px;"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Operational False-Positive Rate</p>
+                  <h2>Analyst-Confirmed False-Positive Trend</h2>
+                  <p>Use only analyst-confirmed false positives; never present model scores as product false-positive rate.</p>
+                </div>
+                <span id="metricsWindowChip" class="status-chip warn">Last 7 Days</span>
+              </div>
+              <div class="surface-body">
+                <div id="fprTrend" class="fpr-trend"></div>
+                <div id="systemHealthCards" class="status-board metrics-status-board" style="margin-top:18px;"></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="surface">
+            <div class="surface-head">
+              <div>
+                <p class="eyebrow">Distributed Detection</p>
+                <h2>Distributed Sensors</h2>
+                <p>Track enrolled endpoint and sensor nodes that send canonical flow observations to central inference.</p>
+              </div>
+              <span id="distributedSensorsChip" class="status-chip warn">No sensors enrolled</span>
+            </div>
+            <div class="surface-body">
+              <div id="distributedSensorsPanel" class="status-board metrics-status-board"></div>
+            </div>
+          </section>
+
+          <section class="analysis-grid analytics-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">SOC Pulse</p>
+                  <h2>Threat Activity Stream</h2>
+                  <p>Chronological detection results from upload, Suricata, and distributed agents. No synthetic stream rows are generated.</p>
+                </div>
+                <span id="activityStreamChip" class="status-chip warn">Awaiting events</span>
+              </div>
+              <div class="surface-body">
+                <div id="threatActivityStream" class="operational-stream"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Golden Path</p>
+                  <h2>Ingestion Flow</h2>
+                  <p>Show where real observations enter, pass validation, become ONNX inference results, and materialize as events.</p>
+                </div>
+                <span id="ingestionFlowChip" class="status-chip warn">No materialized events</span>
+              </div>
+              <div class="surface-body">
+                <div id="ingestionFlowPanel" class="ingestion-flow"></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="surface">
+            <div class="surface-head">
+              <div>
+                <p class="eyebrow">Attack Geography View</p>
+                <h2>Global / Regional Attack Map</h2>
+                <p>See where suspicious sources come from, where they land, and which route needs immediate containment.</p>
+              </div>
+              <span id="topologySectionChip" class="status-chip warn">Awaiting telemetry</span>
+            </div>
+            <div class="surface-body">
+              <div class="topology-grid">
+                <div class="topology-stage">
+                  <div id="topologyMap" class="topology-map" aria-label="Interactive attack map"></div>
+                  <div id="topologyMapFallback" class="topology-fallback" hidden>Interactive map unavailable. Falling back to telemetry summary.</div>
+                  <svg id="topologySvg" class="topology-svg" viewBox="0 0 660 420" aria-label="Network topology map" hidden></svg>
+                </div>
+                <div id="topologyMeta" class="topology-meta"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="analysis-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Pressure Change</p>
+                  <h2>Attack Pressure Trend</h2>
+                  <p>This answers one question: is the threat rising, stable, or already suppressed?</p>
+                </div>
+                <span id="trendWindowChip" class="status-chip good">Last 15 Minutes</span>
+              </div>
+              <div class="surface-body">
+                <canvas id="trendCanvas" class="trend-canvas"></canvas>
+                <div id="trendLegend" class="legend-list" style="margin-top: 18px;"></div>
+              </div>
+            </article>
+
+            <div class="ticker-column">
+              <article class="surface">
+                <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Immediate Attention</p>
+                  <h2>Live Threat Brief</h2>
+                  <p>The newest high-priority threat signals. Open one to move directly into incident review or response.</p>
+                </div>
+                  <span id="tickerWindowChip" class="status-chip critical">15 Minutes</span>
+                </div>
+                <div class="surface-body">
+                  <div id="threatTicker" class="ticker-list"></div>
+                </div>
+              </article>
+
+              <article class="surface">
+                <div class="surface-head">
+                  <div>
+                    <p class="eyebrow">Model Gain</p>
+                    <h2>Adaptive Detection Performance</h2>
+                    <p>Translate research value into product language: how much better this engine is than direct transfer baseline.</p>
+                  </div>
+                  <span class="status-chip good">Model stable</span>
+                </div>
+                <div class="surface-body adaptation-panel">
+                  <div class="adaptation-summary">
+                    <div class="boost-gauge">
+                      <svg viewBox="0 0 148 148" aria-hidden="true">
+                        <circle cx="74" cy="74" r="56" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="10"></circle>
+                        <circle id="boostProgress" cx="74" cy="74" r="56" fill="none" stroke="#0094ff" stroke-width="10" stroke-linecap="round" transform="rotate(-90 74 74)"></circle>
+                      </svg>
+                      <div class="boost-value">
+                        <strong id="boostValue">Pending</strong>
+                        <span id="boostStatus">Stable</span>
+                      </div>
+                    </div>
+                    <div id="adaptationCopy" class="adaptation-copy"></div>
+                  </div>
+                  <div id="adaptationMeta" class="adaptation-meta"></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="surface">
+            <div class="surface-head">
+              <div>
+                <p class="eyebrow">Shadow Optimization</p>
+                <h2>Threshold Optimization Watch</h2>
+                <p>This only shows offline evolution recommendations and never changes the live detection path directly.</p>
+              </div>
+              <span id="optimizationChip" class="status-chip warn">Shadow Mode</span>
+            </div>
+            <div class="surface-body">
+              <div id="optimizationStatusPanel" class="optimization-grid"></div>
+              <div id="optimizationStatusNote" class="metric-strip metric-strip--dense" style="margin-top:18px;"></div>
+            </div>
+          </section>
+
+          <section class="analysis-grid analytics-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Human-AI Disagreement</p>
+                  <h2>Disagreement Distribution</h2>
+                  <p>Expose the severity of AI-vs-human conflicts so analysts know which boundaries require review.</p>
+                </div>
+                <span class="status-chip warn">Review History</span>
+              </div>
+              <div class="surface-body">
+                <div id="reviewConflictSummary" class="status-board metrics-status-board"></div>
+                <div id="reviewConflictDistribution" class="conflict-distribution" style="margin-top:18px;"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Evolution Trace</p>
+                  <h2>GA Evolution History</h2>
+                  <p>Show fitness and threshold changes across shadow evolution runs, not only the final recommendation.</p>
+                </div>
+                <span class="status-chip good">Offline Study</span>
+              </div>
+              <div class="surface-body">
+                <div id="optimizationHistorySummary" class="detail-grid detail-grid--dense"></div>
+                <div id="optimizationHistoryChart" class="optimization-history-chart" style="margin-top:18px;"></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="monitor-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Recent High-Risk Events</p>
+                  <h2>Latest Escalated Alerts</h2>
+                  <p>Events strong enough to affect handling priority appear here, without forcing analysts to hunt through raw data.</p>
+                </div>
+                <div class="dual-actions">
+                  <a class="ghost-button" href="intake.html">Data Intake</a>
+                  <a class="primary-button" href="incidents.html">View Incidents</a>
+                </div>
+              </div>
+              <div class="surface-body">
+                <div class="table-shell">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Event ID</th>
+                        <th>Time</th>
+                        <th>Source IP</th>
+                        <th>Target IP</th>
+                        <th>Verdict</th>
+                        <th>Confidence</th>
+                        <th>Severity</th>
+                        <th>Next Step</th>
+                      </tr>
+                    </thead>
+                    <tbody id="eventRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Incident Pressure</p>
+                  <h2>Priority Incident Queue</h2>
+                  <p>This table answers the operator question that matters: which incident first?</p>
+                </div>
+                <div class="dual-actions">
+                  <a class="ghost-button" href="insights.html">View Model Diagnostics</a>
+                  <a class="primary-button" href="response.html">Enter Response Center</a>
+                </div>
+              </div>
+              <div class="surface-body">
+                <div class="table-shell">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Incident ID</th>
+                        <th>Updated</th>
+                        <th>Priority</th>
+                        <th>Risk Score</th>
+                        <th>Attack Chain</th>
+                        <th>Events</th>
+                        <th>SLA Status</th>
+                        <th>Response State</th>
+                      </tr>
+                    </thead>
+                    <tbody id="incidentRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="tickerModal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <span id="modalSeverity" class="severity-pill severity-critical">critical</span>
+          <h3 id="modalTitle">Threat Summary</h3>
+          <p id="modalDetail">Threat summary content.</p>
+        </div>
+        <button id="closeModal" class="icon-button" type="button" aria-label="Close detail">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 5l10 10M15 5L5 15"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="placeholder-grid" style="grid-template-columns: 1fr 1fr;">
+          <article class="placeholder-panel">
+            <h3>Incident Entry</h3>
+            <p class="text-code" id="modalIncident">INC-2407</p>
+            <p class="small-note">If more evidence and timeline context are needed, enter the incident investigation here.</p>
+          </article>
+          <article class="placeholder-panel">
+            <h3>Quick Response Guidance</h3>
+            <p id="modalResponse">Response recommendation.</p>
+            <p class="small-note">This card has one purpose: move detection results into executable action.</p>
+          </article>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <a class="ghost-button" href="incidents.html">Open Incident</a>
+        <a class="primary-button" href="response.html">Respond Now</a>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

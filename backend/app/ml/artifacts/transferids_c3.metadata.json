@@ -1,0 +1,29 @@
+{
+  "checkpoint_path": "results/C3-2 outputs/cicids2017_to_unsw_nb15/binary/full_icdif/C3_2_cicids2017_to_unsw_nb15_binary_full_icdif_tab_transformer_full_model_r0p7_lr3e-05_e30_class_balanced_checkpoint.pt",
+  "checkpoint_sha256": "f2b2b1ef583eacfa441a69146075b5a257c3632408915f1c41b4d4b0f97da464",
+  "onnx_path": "backend/app/ml/artifacts/transferids_c3.onnx",
+  "onnx_sha256": "d9775f2e2bb0f260bb476e20ca93f9d97efa84cd14a05311755ac842569eb894",
+  "source_dataset": "cicids2017",
+  "target_dataset": "unsw_nb15",
+  "task": "binary",
+  "backbone": "tab_transformer",
+  "input_dim": 13,
+  "num_classes": 2,
+  "feature_order": [
+    "flow_duration",
+    "total_fwd_pkts",
+    "total_bwd_pkts",
+    "total_fwd_bytes",
+    "total_bwd_bytes",
+    "fwd_pkt_len_mean",
+    "bwd_pkt_len_mean",
+    "fwd_iat_mean",
+    "bwd_iat_mean",
+    "fwd_iat_std",
+    "bwd_iat_std",
+    "init_win_fwd",
+    "init_win_bwd"
+  ],
+  "feature_order_path": "backend/app/ml/artifacts/feature_order.json",
+  "opset": 17
+}

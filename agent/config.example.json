@@ -1,0 +1,14 @@
+{
+  "server_url": "http://127.0.0.1:8010/api",
+  "agent_id": "replace-with-real-agent-id",
+  "tenant_id": "default",
+  "display_name": "Replace With Real Sensor Name",
+  "hostname": "replace-with-real-hostname",
+  "ip_address": "",
+  "platform": "windows",
+  "agent_version": "0.1.0",
+  "heartbeat_interval": 30,
+  "observation_file": "canonical_flows.jsonl",
+  "queue_file": "queue/agent_queue.jsonl",
+  "auth_token": ""
+}

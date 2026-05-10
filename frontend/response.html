@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TransferIDS SENTINEL-X - Response Center</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="response">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark"></div><div class="brand-copy"><p class="eyebrow">TransferIDS // SOC</p><strong>SENTINEL-X</strong><span>Cross-domain intrusion detection and guided incident response</span></div></div>
+      
+      <div class="nav-group"><p class="nav-group-label">Core Workspace</p><nav class="nav-list"><a class="nav-item" data-nav="dashboard" href="dashboard.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11.5h4V17H3zM8.5 7.5h4V17h-4zM14 3h3v14h-3z"/></svg></span><span>Dashboard</span></span><span class="nav-badge">Live</span></a><a class="nav-item" data-nav="incidents" href="incidents.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5.5h12M4 10h12M4 14.5h12"/></svg></span><span>Incidents</span></span><span class="nav-badge">Queue</span></a><a class="nav-item" data-nav="response" href="response.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 15l5-5 3 3 4-6"/><path d="M13 7h3v3"/></svg></span><span>Response Center</span></span><span class="nav-badge">Act</span></a><a class="nav-item" data-nav="learning-queue" href="learning-queue.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h12"/><path d="M4 10h12"/><path d="M4 14h8"/><path d="M15 13l2 2 3-4"/></svg></span><span>Learning Queue</span></span><span class="nav-badge">Train</span></a><a class="nav-item" data-nav="insights" href="insights.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10" cy="10" r="6"/><path d="M10 6v4l2 2"/></svg></span><span>Insights</span></span><span class="nav-badge">Model</span></a><a class="nav-item" data-nav="settings" href="settings.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 2.8l1.2 2.4 2.7.4-1.9 1.9.5 2.8-2.5-1.3-2.5 1.3.5-2.8L6.1 5.6l2.7-.4L10 2.8z"/><circle cx="10" cy="10.3" r="1.8"/></svg></span><span>Settings</span></span><span class="nav-badge">Ctrl</span></a></nav></div>
+      <div class="nav-group"><p class="nav-group-label">Operations</p><nav class="nav-list"><a class="nav-item" data-nav="intake" href="intake.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3v9"/><path d="M6.5 8.5L10 12l3.5-3.5"/><rect x="4" y="13.5" width="12" height="3.5" rx="1.2"/></svg></span><span>Data Intake</span></span><span class="nav-badge">Input</span></a><a class="nav-item" data-nav="reports" href="reports.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h7l3 3v11H5z"/><path d="M12 3v4h4"/><path d="M7.5 10h5M7.5 13h5"/></svg></span><span>Reports</span></span><span class="nav-badge">Export</span></a></nav></div>
+      <div class="sidebar-footer"><div class="sidebar-meta"><span>Response Workflow</span><strong>Connected</strong></div><div class="sidebar-meta"><span>Guided Response</span><strong>Available</strong></div></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-copy"><h1 id="pageTitle">Response Center</h1><p id="pageSubtitle">Complete the response flow from evidence to decision to learning feedback on one page.</p></div>
+        <div class="topbar-right"><label class="search-shell"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9" r="5.6"/><path d="M13.2 13.2L17 17"/></svg><input type="text" placeholder="Search incident, action, playbook"></label><button class="icon-button" type="button" aria-label="Notifications"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3.2a3 3 0 0 1 3 3v1.2c0 .8.2 1.7.7 2.4l1 1.5v1.1H5.3v-1.1l1-1.5c.5-.7.7-1.6.7-2.4V6.2a3 3 0 0 1 3-3z"/><path d="M8.2 15.6a2 2 0 0 0 3.6 0"/></svg></button><div class="user-pill"><div class="avatar">SX</div><div><strong>SOC Analyst</strong><span>Session Active</span></div></div><div class="status-chip warn"><span id="currentTime">--:--:--</span></div></div>
+      </header>
+      <div class="content">
+        <div class="section-stack">
+          <section class="operator-command-shell operator-command-shell--response">
+            <div class="operator-status-bar">
+              <div>
+                <p class="operator-kicker">Response Command</p>
+                <h2>Evidence, decision, and response must happen in one operations surface</h2>
+                <span>All major sections are driven by `/api/incidents`, `/api/review/*`, and guided response APIs.</span>
+              </div>
+              <nav class="operator-tab-strip" aria-label="Response workflow">
+                <a href="#responseContextGrid" class="operator-tab operator-tab--active">Context</a>
+                <a href="#responseTimelineRows" class="operator-tab">Evidence</a>
+                <a href="#aiInsightsCard" class="operator-tab">AI Briefing</a>
+                <a href="#recommendedActions" class="operator-tab">Actions</a>
+                <a href="#feedbackHistoryRows" class="operator-tab">Learning</a>
+              </nav>
+            </div>
+          </section>
+
+          <section class="hero-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Left: Evidence</p>
+                  <h2>Incident Context</h2>
+                  <p>Keep incident background visible so analysts do not jump between pages for context.</p>
+                </div>
+                <span id="responseContextChip" class="status-chip warn">No incident selected</span>
+              </div>
+              <div class="surface-body">
+                <div id="responseContextGrid" class="detail-grid detail-grid--dense"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Center: Decision</p>
+                  <h2>Response State</h2>
+                  <p>Concentrate incident state, SLA, and next step into one decision panel.</p>
+                </div>
+                <span class="status-chip warn">Decision required</span>
+              </div>
+              <div class="surface-body">
+                <div id="workflowStatusGrid" class="status-board"></div>
+                <div class="config-grid response-command-grid" style="margin-top: 18px;">
+                  <label class="field-shell">
+                    <span>Response Progress</span>
+                    <select id="responseStatusSelect">
+                      <option value="Investigating">Investigating</option>
+                      <option value="Contained">Contained</option>
+                      <option value="Resolved">Resolved</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="analysis-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Left: Storyline</p>
+                  <h2>Timeline and Evidence</h2>
+                  <p>Understand what happened before deciding the next action.</p>
+                </div>
+                <span class="status-chip good">Evidence chain</span>
+              </div>
+              <div class="surface-body">
+                <div class="table-shell">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Time</th>
+                        <th>Event ID</th>
+                        <th>Action</th>
+                        <th>Confidence</th>
+                        <th>Evidence Note</th>
+                      </tr>
+                    </thead>
+                    <tbody id="responseTimelineRows"></tbody>
+                  </table>
+                </div>
+                <div class="audit-list" id="auditTrail" style="margin-top:18px;"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Center: AI Assistance</p>
+                  <h2>AI Recommendations and Response Playbook</h2>
+                  <p>Review the AI assessment, then decide whether to contain, monitor, or escalate.</p>
+                </div>
+                <span id="responseAdvisorChip" class="status-chip warn">Awaiting analyst review</span>
+              </div>
+              <div class="surface-body">
+                <div id="advisorDisagreementBanner"></div>
+                <div id="aiInsightsCard" class="advisor-insight-card"></div>
+                <div id="playbookSteps" class="playbook-list"></div>
+                <div id="recommendedActions" class="candidate-list" style="margin-top:18px;"></div>
+                <div class="section-divider"></div>
+                <div class="section-head-inline">
+                  <div>
+                    <p class="eyebrow">Decision History</p>
+                    <h3>Review and Disagreement History</h3>
+                    <p>Keep the evolution of AI recommendations, human judgment, and final review, not only the current snapshot.</p>
+                  </div>
+                  <span class="status-chip good">Audit Trail</span>
+                </div>
+                <div id="decisionHistorySummary" class="detail-grid detail-grid--dense" style="margin-top:18px;"></div>
+                <div id="decisionHistoryTimeline" class="review-history-timeline" style="margin-top:18px;"></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="hero-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Right: Learning Feedback</p>
+                  <h2>Your decision feeds the model</h2>
+                  <p>This is not a form; it sends your decision into the next learning cycle.</p>
+                </div>
+                <span class="status-chip good">Feedback enabled</span>
+              </div>
+              <div class="surface-body">
+                <div class="feedback-row">
+                  <button class="feedback-button positive" type="button" data-feedback="True Positive">Mark as Attack</button>
+                  <button class="feedback-button negative" type="button" data-feedback="False Positive">Mark as Benign</button>
+                  <button class="feedback-button neutral" type="button" data-feedback="Uncertain">Needs Review</button>
+                </div>
+                <div class="config-grid" style="margin-top: 18px;">
+                  <label class="field-shell">
+                    <span>Feedback Purpose</span>
+                    <select id="feedbackTypeSelect">
+                      <option value="analyst_validation">Analyst Validation</option>
+                      <option value="quality_review">Quality Review</option>
+                      <option value="training_candidate">Training Candidate</option>
+                    </select>
+                  </label>
+                  <label class="field-shell">
+                    <span>Confidence Adjustment</span>
+                    <input id="feedbackConfidenceInput" type="text" placeholder="Optional confidence override">
+                  </label>
+                </div>
+                <label class="field-shell" style="margin-top: 18px;">
+                  <span>Decision Note</span>
+                  <textarea id="feedbackNoteInput" rows="5" placeholder="Explain why this decision is correct, why it is a false positive, or why it should enter future learning."></textarea>
+                </label>
+                <div class="toggle-row" style="margin-top: 16px;">
+                  <label class="switch-shell">
+                    <input id="reviewPoolToggle" type="checkbox" checked>
+                    <span>Send to weak-supervision review queue</span>
+                  </label>
+                  <label class="switch-shell">
+                    <input id="finetunePoolToggle" type="checkbox" checked>
+                    <span>Send to target-assisted fine-tuning queue</span>
+                  </label>
+                </div>
+                <div class="dual-actions" style="margin-top: 18px;">
+                  <button id="submitFeedbackBtn" class="primary-button response-decision-button" type="button">Submit Analyst Review</button>
+                </div>
+                <div id="feedbackSummary" class="status-board"></div>
+                <div class="correlation-flow" id="feedbackFlow" style="margin-top:18px;"></div>
+                <div id="feedbackRecordPreview" class="detail-grid detail-grid--dense" style="margin-top:18px;"></div>
+                <div class="table-shell" style="margin-top:18px;">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Feedback ID</th>
+                        <th>Analyst Verdict</th>
+                        <th>Feedback Purpose</th>
+                        <th>Analyst</th>
+                        <th>Review Queue</th>
+                        <th>Fine-Tuning Queue</th>
+                        <th>Training Status</th>
+                        <th>Created At</th>
+                      </tr>
+                    </thead>
+                    <tbody id="feedbackHistoryRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Lower Right: Evidence Output</p>
+                  <h2>Response Output</h2>
+                  <p>Package this incident into portable, deliverable, traceable output.</p>
+                </div>
+                <span class="status-chip warn">Awaiting evidence</span>
+              </div>
+              <div class="surface-body">
+                <div id="artifactCards" class="mapping-grid"></div>
+                <div class="table-shell" style="margin-top:18px;">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Type</th>
+                        <th>Preview</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="artifactTableRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.git
+node_modules
+release
+__pycache__
+*.pyc
+.env
+*.db
+backend/app/ml/artifacts/*.onnx
+backend/app/ml/artifacts/*.pkl
+

@@ -1,0 +1,61 @@
+{
+  "version": "canonical_attack_taxonomy_v1",
+  "scope": "label_harmonization_reference",
+  "note": "The deployed ONNX model is binary. This file harmonizes external dataset labels for reporting and research; it is not used to invent multiclass predictions.",
+  "families": {
+    "normal": {
+      "canonical_label": "Normal",
+      "severity": "low",
+      "cicids": ["BENIGN", "Benign"],
+      "unsw": ["Normal"]
+    },
+    "dos": {
+      "canonical_label": "DoS",
+      "severity": "high",
+      "cicids": ["DoS Hulk", "DoS GoldenEye", "DoS slowloris", "DoS Slowhttptest", "Heartbleed"],
+      "unsw": ["DoS"]
+    },
+    "ddos": {
+      "canonical_label": "DDoS",
+      "severity": "critical",
+      "cicids": ["DDoS"],
+      "unsw": []
+    },
+    "reconnaissance": {
+      "canonical_label": "Reconnaissance",
+      "severity": "medium",
+      "cicids": ["PortScan"],
+      "unsw": ["Reconnaissance", "Analysis"]
+    },
+    "bruteforce": {
+      "canonical_label": "Brute Force",
+      "severity": "high",
+      "cicids": ["FTP-Patator", "SSH-Patator"],
+      "unsw": ["Generic"]
+    },
+    "web_attack": {
+      "canonical_label": "Web Attack",
+      "severity": "high",
+      "cicids": ["Web Attack - Brute Force", "Web Attack - XSS", "Web Attack - Sql Injection"],
+      "unsw": ["Exploits", "Shellcode"]
+    },
+    "malware": {
+      "canonical_label": "Malware",
+      "severity": "high",
+      "cicids": ["Bot"],
+      "unsw": ["Worms", "Backdoor"]
+    },
+    "infiltration": {
+      "canonical_label": "Infiltration",
+      "severity": "critical",
+      "cicids": ["Infiltration"],
+      "unsw": []
+    },
+    "fuzzers": {
+      "canonical_label": "Fuzzers",
+      "severity": "medium",
+      "cicids": [],
+      "unsw": ["Fuzzers"]
+    }
+  }
+}

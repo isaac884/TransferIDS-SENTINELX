@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TransferIDS SENTINEL-X - Reports and Export</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="reports">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark"></div><div class="brand-copy"><p class="eyebrow">TransferIDS // SOC</p><strong>SENTINEL-X</strong><span>Cross-domain intrusion detection and guided incident response</span></div></div>
+      <section class="sidebar-block"><h3>Evidence Output Layer</h3><p>This page packages incident, response, and model evidence into downloadable, deliverable, traceable output.</p></section>
+      <div class="nav-group"><p class="nav-group-label">Core Workspace</p><nav class="nav-list"><a class="nav-item" data-nav="dashboard" href="dashboard.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11.5h4V17H3zM8.5 7.5h4V17h-4zM14 3h3v14h-3z"/></svg></span><span>Dashboard</span></span><span class="nav-badge">Live</span></a><a class="nav-item" data-nav="incidents" href="incidents.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5.5h12M4 10h12M4 14.5h12"/></svg></span><span>Incidents</span></span><span class="nav-badge">Queue</span></a><a class="nav-item" data-nav="response" href="response.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 15l5-5 3 3 4-6"/><path d="M13 7h3v3"/></svg></span><span>Response Center</span></span><span class="nav-badge">Act</span></a><a class="nav-item" data-nav="learning-queue" href="learning-queue.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h12"/><path d="M4 10h12"/><path d="M4 14h8"/><path d="M15 13l2 2 3-4"/></svg></span><span>Learning Queue</span></span><span class="nav-badge">Train</span></a><a class="nav-item" data-nav="insights" href="insights.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10" cy="10" r="6"/><path d="M10 6v4l2 2"/></svg></span><span>Insights</span></span><span class="nav-badge">Model</span></a><a class="nav-item" data-nav="settings" href="settings.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 2.8l1.2 2.4 2.7.4-1.9 1.9.5 2.8-2.5-1.3-2.5 1.3.5-2.8L6.1 5.6l2.7-.4L10 2.8z"/><circle cx="10" cy="10.3" r="1.8"/></svg></span><span>Settings</span></span><span class="nav-badge">Ctrl</span></a></nav></div>
+      <div class="nav-group"><p class="nav-group-label">Operations</p><nav class="nav-list"><a class="nav-item" data-nav="intake" href="intake.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3v9"/><path d="M6.5 8.5L10 12l3.5-3.5"/><rect x="4" y="13.5" width="12" height="3.5" rx="1.2"/></svg></span><span>Data Intake</span></span><span class="nav-badge">Input</span></a><a class="nav-item" data-nav="reports" href="reports.html"><span class="nav-main"><span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h7l3 3v11H5z"/><path d="M12 3v4h4"/><path d="M7.5 10h5M7.5 13h5"/></svg></span><span>Reports</span></span><span class="nav-badge">Export</span></a></nav></div>
+      <div class="sidebar-footer"><div class="sidebar-meta"><span>Evidence Package</span><strong>Pending</strong></div><div class="sidebar-meta"><span>Latest Export</span><strong>Never</strong></div></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-copy"><h1 id="pageTitle">Reports and Export</h1><p id="pageSubtitle">Package dynamic detection results into formal evidence bundles that analysts, leaders, and researchers can review.</p></div>
+        <div class="topbar-right"><label class="search-shell"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9" r="5.6"/><path d="M13.2 13.2L17 17"/></svg><input type="text" placeholder="Search report, artifact, incident"></label><button class="icon-button" type="button" aria-label="Notifications"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3.2a3 3 0 0 1 3 3v1.2c0 .8.2 1.7.7 2.4l1 1.5v1.1H5.3v-1.1l1-1.5c.5-.7.7-1.6.7-2.4V6.2a3 3 0 0 1 3-3z"/><path d="M8.2 15.6a2 2 0 0 0 3.6 0"/></svg></button><div class="user-pill"><div class="avatar">SX</div><div><strong>SOC Analyst</strong><span>Session Active</span></div></div><div class="status-chip good"><span id="currentTime">--:--:--</span></div></div>
+      </header>
+      <div class="content">
+        <div class="section-stack">
+          <section class="operator-command-shell operator-command-shell--reports">
+            <div class="operator-status-bar">
+              <div>
+                <p class="operator-kicker">Forensic Reporting Workspace</p>
+                <h2>Package incident evidence into deliverable, auditable, traceable output</h2>
+                <span>This supports incident reports, evidence packages, AI summaries, chain-of-custody, and compliance artifacts.</span>
+              </div>
+              <nav class="operator-tab-strip" aria-label="Reporting workflow">
+                <a href="#reportPreviewGrid" class="operator-tab operator-tab--active">Report Builder</a>
+                <a href="#reportTimelineChart" class="operator-tab">Timeline</a>
+                <a href="#reportBundleCards" class="operator-tab">Evidence</a>
+                <a href="#reportExportSummary" class="operator-tab">Export</a>
+                <a href="#reportHistoryRows" class="operator-tab">Custody</a>
+              </nav>
+            </div>
+          </section>
+
+          <section class="hero-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Export Preview</p>
+                  <h2>Current Incident Evidence Package</h2>
+                  <p>Preview what the package contains before generating the formal output.</p>
+                </div>
+                <span id="reportPreviewChip" class="status-chip warn">No case selected</span>
+              </div>
+              <div class="surface-body">
+                <div id="reportPreviewGrid" class="detail-grid detail-grid--dense"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Export Control</p>
+                  <h2>Evidence Package Generator</h2>
+                  <p>Choose time range, format, and content type, then generate a formal evidence file.</p>
+                </div>
+                <span class="status-chip warn">Awaiting evidence</span>
+              </div>
+              <div class="surface-body">
+                <div class="config-grid">
+                  <label class="field-shell">
+                    <span>Time Range</span>
+                    <select id="reportRangeSelect">
+                      <option value="1h">Last 1 hour</option>
+                      <option value="24h" selected>Last 24 hours</option>
+                      <option value="custom">Custom Range</option>
+                    </select>
+                  </label>
+                  <label class="field-shell">
+                    <span>Output Format</span>
+                    <select id="reportFormatSelect">
+                      <option value="pdf" selected>PDF</option>
+                      <option value="csv">CSV</option>
+                      <option value="json">JSON</option>
+                    </select>
+                  </label>
+                </div>
+                <div id="reportExportSummary" class="status-board"></div>
+                <div class="dual-actions" style="margin-top:18px;">
+                  <button id="exportBundleBtn" class="primary-button" type="button">Export Evidence Package</button>
+                  <button id="exportIncidentBtn" class="ghost-button" type="button">Generate Incident Report</button>
+                </div>
+                <div class="correlation-flow" id="reportExportFlow" style="margin-top:18px;"></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="analysis-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Attack Time Scatter</p>
+                  <h2>Incident Development Timeline</h2>
+                  <p>Use time context to see how the attack escalated and which events pushed it into response.</p>
+                </div>
+                <span class="status-chip warn">ECharts</span>
+              </div>
+              <div class="surface-body">
+                <div id="reportTimelineChart" class="chart-host"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Response Radar</p>
+                  <h2>Mitigation Effectiveness Overview</h2>
+                  <p>Compress detection speed, model confidence, SLA performance, and analyst certainty into one deliverable effectiveness view.</p>
+                </div>
+                <span class="status-chip good">ECharts</span>
+              </div>
+              <div class="surface-body">
+                <div id="reportRadarChart" class="chart-host"></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="hero-grid">
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Package Contents</p>
+                  <h2>Evidence Package Contents</h2>
+                  <p>Bundle incident, response, and model evidence together for both human review and system handoff.</p>
+                </div>
+                <span class="status-chip good">Structured output</span>
+              </div>
+              <div class="surface-body">
+                <div id="reportBundleCards" class="mapping-grid"></div>
+              </div>
+            </article>
+
+            <article class="surface">
+              <div class="surface-head">
+                <div>
+                  <p class="eyebrow">Export History</p>
+                  <h2>Evidence Tracking Records</h2>
+                  <p>Every generated report should remain traceable, not disappear after download.</p>
+                </div>
+                <span class="status-chip good">Traceable</span>
+              </div>
+              <div class="surface-body">
+                <div class="table-shell">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Report ID</th>
+                        <th>Incident ID</th>
+                        <th>Created By</th>
+                        <th>Time</th>
+                        <th>Type</th>
+                        <th>Format</th>
+                        <th>Download</th>
+                      </tr>
+                    </thead>
+                    <tbody id="reportHistoryRows"></tbody>
+                  </table>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
